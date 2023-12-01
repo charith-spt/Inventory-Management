@@ -69,22 +69,19 @@
 <body>
     <h1>List of Items</h1>
     <form method="POST" action="/buy_property">
-        <label for="property_name">Property Name:</label>
+        <label for="property_name">Product Name:</label>
         <input type="text" name="property_name" required><br><br>
         
-        <label for="property_type">Property Type:</label>
+        <label for="property_type">Product Type:</label>
         <select name="property_type">
             <option value="Apartment">Apartment</option>
             <option value="House">House</option>
             <option value="Condo">Condo</option>
         </select><br><br>
         
-        <label for="budget">Budget:</label>
+        <label for="budget">Price:</label>
         <input type="number" name="budget" required><br><br>
-        
-        <label for="message">Message:</label><br>
-        <textarea name="message" rows="4" cols="50" required></textarea><br><br>
-        
+
         <button type="submit">Buy Property</button>
     </form>
 </body>
