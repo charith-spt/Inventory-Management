@@ -1,1 +1,1 @@
-# python-test
+Inventory Management App
