@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Rice",
+    "cost": 10.99,
+    "stocks": 501
+  },
+  {
+    "id": 2,
+    "name": "Milk",
+    "cost": 2.99,
+    "stocks": 100
+  },
+  {
+    "id": 3,
+    "name": "Eggs",
+    "cost": 1.99,
+    "stocks": 75
+  },
+  {
+    "id": 4,
+    "name": "Bread",
+    "cost": 3.49,
+    "stocks": 80
+  }
+]

@@ -5,53 +5,55 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f0f0f0; /* Light gray background color */
+            color: #333; /* Dark text color */
+            margin: 0;
         }
 
         header {
-            background-color: #007bff;
-            color: white;
+            background-color: #008CBA; /* Blue header color */
             text-align: center;
             padding: 20px;
+            color: white; /* White text color */
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #fff; /* White container background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
+            border-radius: 5px;
+            margin-top: 20px;
         }
 
         .section {
             margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #ffffff;
         }
 
-        .button {
-            display: inline-block;
-            margin: 10px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for table */
+            border-radius: 5px;
+            overflow: hidden; /* Hide overflow content */
+            background-color: #f9f9f9; /* Light gray background color for the table */
         }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008CBA; /* Blue header color */
             color: white;
-            cursor: pointer;
         }
 
-        .btn-list {
-            background-color: #4CAF50; /* Green */
-        }
-
-        .btn-buy {
-            background-color: #f44336; /* Red */
-        }
-
-        .btn-sell {
-            background-color: #008CBA; /* Blue */
+        tbody tr:hover {
+            background-color: #f5f5f5; /* Light gray background color on hover */
         }
 
         ul {
@@ -62,6 +64,40 @@
         li {
             margin: 10px 0;
         }
+
+        .button {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button-new {
+            background-color: #4CAF50; /* Green button color for New Product */
+        }
+
+        .button-edit,
+        .button-delete {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button-edit {
+            background-color: #4CAF50; /* Green button color for Edit */
+        }
+
+        .button-delete {
+            background-color: #f44336; /* Red button color for Delete */
+        }
     </style>
 </head>
 <body>
@@ -71,17 +107,35 @@
 
     <div class="container">
         <section class="section">
-            <h2>Inventory and Order history</h2>
-            <div class="button">
-                <form action="{{ url_for('buy_property') }}" method="get">
-                    <button type="submit" class="btn btn-buy">Inventory</button>
-                </form>
-            </div>
-            <div class="button">
-                <form action="{{ url_for('sell_property') }}" method="get">
-                    <button type="submit" class="btn btn-sell">Order history</button>
-                </form>
-            </div>
+            <h2 style="color: #008CBA;">Products Table</h2>
+            <a href="{{ url_for('add_product') }}" class="button button-new">New Product</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Stocks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product['name'] }}</td>
+                            <td>${{ product['cost'] }}</td>
+                            <td>{{ product['stocks'] }}</td>
+                            <td>
+                                <form method="post">
+                                    <button type="submit" class="button button-edit" name="edit" value="{{ product['id'] }}">Edit</button>
+                                </form>
+                                <form method="post">
+                                    <button type="submit" class="button button-delete" name="delete" value="{{ product['id'] }}">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </section>
     </div>
 
