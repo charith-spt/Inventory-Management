@@ -3,24 +3,42 @@
     "id": 1,
     "name": "Rice",
     "cost": 10.99,
-    "stocks": 501
+    "stocks": 50,
+    "location": "A1-02-01"
   },
   {
     "id": 2,
     "name": "Milk",
     "cost": 2.99,
-    "stocks": 100
+    "stocks": 100,
+    "location": "A1-04-02"
   },
   {
     "id": 3,
     "name": "Eggs",
     "cost": 1.99,
-    "stocks": 75
+    "stocks": 75,
+    "location": "A1-04-02"
   },
   {
     "id": 4,
     "name": "Bread",
     "cost": 3.49,
-    "stocks": 80
+    "stocks": 80,
+    "location": "A1-04-02"
+  },
+  {
+    "id": 5,
+    "name": "Tea",
+    "cost": 10.95,
+    "stocks": 100,
+    "location": "B2-10-19"
+  },
+  {
+    "id": 7,
+    "name": "Mayo",
+    "cost": 10.95,
+    "stocks": 1000,
+    "location": "B10-15-39"
   }
 ]

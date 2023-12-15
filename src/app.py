@@ -41,19 +41,26 @@ def add_product():
         product_name = request.form.get('product_name')
         price_str = request.form.get('price')
         quantity_str = request.form.get('quantity')
+        location = request.form.get('location')  # Add this line
+        
+        print(f"Product Name: {product_name}")
+        print(f"Price: {price_str}")
+        print(f"Quantity: {quantity_str}")
+        print(f"Location: {location}")
 
-        # Check if price and quantity are not empty
-        if price_str and quantity_str:
+        # Check if price, quantity, and location are not empty
+        if price_str and quantity_str and location:
             # Convert price and quantity to float and int, respectively
             price = float(price_str)
             quantity = int(quantity_str)
 
             # Create a dictionary to represent the new product
             new_product = {
-                'id': len(product_listings) + 1,  # Assuming you have an 'id' field
+                'id': len(product_listings) + 1,
                 'name': product_name,
                 'cost': price,
                 'stocks': quantity,
+                'location': location,  # Add this line
             }
 
             # Append the new product to the list
@@ -65,7 +72,7 @@ def add_product():
             flash('Product added successfully!', 'success')
             return redirect(url_for('home'))
 
-        flash('Invalid input. Please enter valid price and quantity.', 'error')
+        flash('Invalid input. Please enter valid price, quantity, and location.', 'error')
 
     return render_template('add_product.html')
 
@@ -99,6 +106,7 @@ def edit_product(product_id):
             product['name'] = request.form.get('name')
             product['cost'] = float(request.form.get('cost'))
             product['stocks'] = int(request.form.get('stocks'))
+            product['location'] = request.form.get('location')  # Add this line
             flash('Product details updated successfully!', 'success')
 
             # Save updated product details to the JSON file

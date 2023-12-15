@@ -90,7 +90,7 @@
             cursor: pointer;
             text-decoration: none;
         }
-
+        
         .button-edit {
             background-color: #4CAF50; /* Green button color for Edit */
         }
@@ -114,7 +114,8 @@
                     <tr>
                         <th>Product Name</th>
                         <th>Price</th>
-                        <th>Stocks</th>
+                        <th>On Hand</th>
+                        <th>Location</th> <!-- Add a new column for Location -->
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -124,6 +125,7 @@
                             <td>{{ product['name'] }}</td>
                             <td>${{ product['cost'] }}</td>
                             <td>{{ product['stocks'] }}</td>
+                            <td>{{ product['location'] }}</td> <!-- Display the location -->
                             <td>
                                 <form method="post">
                                     <button type="submit" class="button button-edit" name="edit" value="{{ product['id'] }}">Edit</button>
